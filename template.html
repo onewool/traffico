@@ -1,0 +1,149 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Traffico</title>
+    <link rel="icon" href="img/favicon.ico">
+    <style>
+      @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+      /*customizing css*/
+      
+      .my-10{
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+      }
+      /*폰트*/
+      body{
+        font-family: 'NanumSquare';
+        font-weight: 600;
+        font-size: 1.2em;
+      }
+      /*네브바 안의 로고 이미지*/
+      a.navbar-brand img{
+        height: 60px;
+
+      }
+      li{
+          list-style: none;
+        }
+      
+      .position-absolute{
+        bottom: -100%;
+        width: 100%;
+        margin: 0;
+      }
+      .folium-map{
+        width: 1000px;
+        height: 1000px;
+      }
+      .color1 {background-color: #f6aea4; !important}
+      .color2 {background-color: #f1cd7e; !important}
+      .color3 {background-color: #122170; !important}
+      .color4 {background-color: #1a6dba; !important}
+      .color5 {background-color: #20c7d8; !important}
+    </style>
+  </head>
+  <body class="color4">
+    <div class="container-fluid px-0 color1">
+      <!-----------------네브바------------------->
+      <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top color5" >
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="#">
+            <img src="img/Logo.png" alt="Traffico">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button><!-- navbar-toggler -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">서비스 안내<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  지역별 데이터
+                </a>
+                <div class="dropdown-menu color5" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">서울</a>
+                  <a class="dropdown-item" href="#">경기</a>
+                  <a class="dropdown-item" href="#">강원</a>
+                  <a class="dropdown-item" href="#">경상</a>
+                  <a class="dropdown-item" href="#">충청</a>
+                  <a class="dropdown-item" href="#">전라</a>
+                </div>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">알림마당</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">이용안내</a>
+              </li>
+            </ul><!-- navbar-nav -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link text-dark">로그인</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-warning text-dark">회원가입</a>
+              </li>
+            </ul><!-- navbar-nav -->
+          </div><!-- collapse -->
+        </div><!-- container -->
+      </nav><!-- navbar -->
+      
+
+
+      <!----------------- footer------------------->
+      <div class="row bg-secondary text-white position-absolute">
+        <hr style="width: 95%">
+        <div class="col-md-4 col-xs-12">
+          <button type="button" class="btn btn-secondary btn-lg">사이트 소개</button>
+          <button type="button" class="btn btn-secondary btn-lg">사이트 맵</button>
+        </div>
+        <ul class="col-md-4 col-xs-12">
+          <li><em>· 이름 :</em> 유한울</li>
+          <li><em>· 전화번호 :</em> 010-9156-8768</li>
+          <li><em>· 이메일 :</em> docus17@gmail.com</li>
+        </ul>
+        <p class="col-md-4 col-xs-12">Copyright © 2022, Traffico. All rights reserved.</p>
+      </div>
+      
+      <!----------------- footer------------------->
+    </div><!-- container-fluid -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script>
+      $(function(){
+        var nav = $(".container-fluid .navbar");
+        $(window).scroll(function(){
+           var scrollTop =$("html,body").scrollTop();
+          if (scrollTop>100) {
+            nav.removeClass("color5");
+            nav.addClass("bg-transparent");
+          }else{
+            nav.removeClass("bg-transparent");
+            nav.addClass("color5");
+          }
+        })
+      })    
+
+    </script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>
