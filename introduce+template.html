@@ -31,7 +31,9 @@
         height: 100%;
       }
       body {
-        font-family: 'NanumSquare', sans-serif;
+        font-family: 'NanumSquare';
+        font-weight: 600;
+        font-size: 1.2em;
         margin: 0;
         padding: 0;
       }
@@ -52,7 +54,7 @@
         display: inline-block;
         content: "▶";
       }
-      li{
+      .swiper-slide li{
         list-style: none;
         position: relative;
         padding-left: 3em;
@@ -64,9 +66,18 @@
         width: 100%;
         height: 100%;
       }
+      .color1 {background-color: #f6aea4; !important}
+      .color2 {background-color: #f1cd7e; !important}
+      .color3 {background-color: #122170; !important}
+      .color4 {background-color: #1a6dba; !important}
+      .color5 {background-color: #20c7d8; !important}
+
       /****************************************** nav ******************************************/
+      nav .nav-link{
+        color: ghostwhite;
+      }
       .navbar-brand img{
-        height: 50px;
+        height: 60px;
       }
       a.nav-link {
         width: 100%;
@@ -76,11 +87,11 @@
       /****************************************** swiper ******************************************/
       /*pagination*/
       :root {
-        --swiper-theme-color: #265990;
+        --swiper-theme-color: #FFFFFF;
         --swiper-pagination-color: var(--swiper-theme-color);
         --swiper-pagination-bullet-width: 2px;
         --swiper-pagination-bullet-height: 50px;
-        --swiper-pagination-bullet-inactive-color: #265990;
+        --swiper-pagination-bullet-inactive-color: #FFFFFF;
         --swiper-pagination-bullet-inactive-opacity: 0.3;
         --swiper-pagination-bullet-opacity: 1;
         --swiper-pagination-bullet-horizontal-gap: 4px;
@@ -114,6 +125,13 @@
        align-items: center;
        padding-bottom: 50px;
      }
+     /****************************************** title ******************************************/
+     .title{
+      color: ghostwhite;
+     }
+
+
+
      /****************************************** card ******************************************/
      .swiper-slide.webdata .card{
       background-color: black;
@@ -136,7 +154,7 @@
     @media (max-width: 575.98px) {
       .h1,h1{
         font-size: 1.4rem;
-        margin: 70px 0 20px 0;
+        margin: 90px 0 20px 0;
       }
       .h5,h5{
         font-size: 0.8rem;
@@ -152,7 +170,7 @@
     /*Small devices (landscape phones, 576px and up)*/
     @media (min-width: 576px) and (max-width: 767.98px) {
       h1{
-        margin: 80px 0 30px 0;
+        margin: 100px 0 30px 0;
         text-align: center;
       }
     }
@@ -160,7 +178,7 @@
     /*Medium devices (tablets, 768px and up)*/
     @media (min-width: 768px) and (max-width: 991.98px) {
       h1{
-        margin: 80px 0 30px 0;
+        margin: 120px 0 30px 0;
         text-align: center;
       }
     }
@@ -168,8 +186,11 @@
     /*Large devices (desktops, 992px and up)*/
     @media (min-width: 992px) and (max-width: 1199.98px) {
       h1{
-        margin: 100px 0 30px 0;
+        margin: 140px 0 30px 0;
         text-align: center;
+      }
+      .swiper-slide li{
+        font-size: 1rem;
       }
     }
 
@@ -189,7 +210,7 @@
 
   </style>
 </head>
-<body>
+<body class="color4">
   <!-----------------네브바------------------->
   <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top color5" >
     <div class="container">
@@ -242,8 +263,8 @@
   <div class="swiper-container container-fluid">
     <div class="swiper-wrapper container">
       <div class="swiper-slide row d-flex">
-        <div class="text-center">
-          <h1><img class="img-fluid mx-auto" src="#" alt=""></h1>
+        <div class="text-center title">
+          <h1><img class="img-fluid mx-auto" src="image/icon/logo.svg" alt=""></h1>
           <h5 class="text-center">
             Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.
           </h5>
@@ -273,23 +294,23 @@
                 <pre class="border-0 text-white">{
                   "<span class="text-warning">index</span>" : "사고 건 수",
                   <div class="row">
-                    "<span class="text-warning">column</span>" : [
-                    "생성일"
-                    "사고ID"
-                    "발생 일시"
-                    "종료 일시"
-                    "분류 코드""
-                    "분류 명"
-                    "메시지"
-                    "동경"
-                    "북위"
-                    ],
-                    "<span class="text-warning">data</span>" :  [
-                    "발생 일시"
-                    "분류명"
-                    "경도"
-                    "위도"
-                  ]</div>}
+"<span class="text-warning">column</span>" : [
+"생성일"
+"사고ID"
+"발생 일시"
+"종료 일시"
+"분류 코드""
+"분류 명"
+"메시지"
+"동경"
+"북위"
+],
+"<span class="text-warning">data</span>" :  [
+"발생 일시"
+"분류명"
+"경도"
+"위도"
+]</div>}
                 </pre>
               </div><!-- card-body -->
             </div><!-- card -->
@@ -414,6 +435,26 @@
   <!-- Add Pagination -->
   <div class="swiper-pagination"></div>
 
+  <!-- nav javascript -->
+  <script>
+      $(function(){
+        var nav = $(".container-fluid .navbar");
+        $(window).scroll(function(){
+         var scrollTop =$("html,body").scrollTop();
+         if (scrollTop>100) {
+          nav.removeClass("color5");
+          nav.addClass("bg-transparent");
+        }else{
+          nav.removeClass("bg-transparent");
+          nav.addClass("color5");
+        }
+      })
+
+      }
+
+    </script>
+
+    <!-- swiper javascript -->
   <script>
     var swiper = new Swiper('.swiper-container', {
       direction: 'vertical',
@@ -425,6 +466,7 @@
      },
    });
  </script>
+
 
 </body>
 </html>
