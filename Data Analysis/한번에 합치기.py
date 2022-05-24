@@ -1,10 +1,20 @@
-from pandas import DataFrame, read_csv, concat
-import pandas as pd
+import pandas as pd 
+import numpy as np
+import os
 
-df=read_csv('data/AcDay/Ac_Day_20210103.csv', encoding='euc-kr', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None)
-df1=read_csv('data/AcDay/Ac_Day_20210102.csv', encoding='euc-kr', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None)
-df2=read_csv('data/AcDay/Ac_Day_20210102.csv', encoding='euc-kr', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None)
-df= concat([df,df1,df2]) 
+forders = os.listdir('data/AcDay')
+#print(forders)
+df_all = pd.DataFrame()
+for i in range(0,len(forders)):
+    if forders[i].split('.')[1] == 'csv':
+        file = 'data/AcDay/'+forders[i]
+        df= pd.read_csv(file,encoding='cp949', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None) 
+        df_all = pd.concat([df_all, df])
+        
+df_all.to_csv('./test.csv', encoding='euc-kr', header=False, index=False)
+print('저장 완료')
+df=pd.read_csv('test.csv', encoding='euc-kr', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None)
+
 for i in range(0,len(df.index)):   
     if df.iloc[i,-1] != '':
         df.iloc[i,7] = df.iloc[i,-2]
@@ -36,4 +46,4 @@ print(df['coordY'].dtype)
 df['coordX'] = df['coordX'].round(2)
 df['coordY'] = df['coordY'].round(2)
 print(df)
-df.to_csv('./2101_test.csv', encoding='euc-kr', header=False, index=False)
+df.to_csv('./test2.csv', encoding='euc-kr', header=False, index=False)
