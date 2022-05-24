@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <title>Traffico</title>
-    <link rel="icon" href="img/favicon.svg">
+    <link rel="icon" href="image/icon/favicon.svg">
     <style>
       @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
@@ -51,7 +51,7 @@
         position: absolute;
         left: 50%;
         margin-left: -325px;
-        top: 50px;
+        top: 0px;
 
 
       }
@@ -71,15 +71,23 @@
       .jumbotron .container{
         margin-top: 50px;
       }
+      .introduce{
+        width: 1000px;
+      }
+      .inpo{
+        top: 720px;
+        left: 50%;
+        margin-left: -500px;
+      }
     </style>
   </head>
   <body class="color4">
-    <div class="container-fluid px-0 color1">
+    <div class="container-fluid px-0">
       <!-----------------네브바------------------->
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top color5" >
         <div class="container">
           <a class="navbar-brand mx-auto" href="#">
-            <img src="img/logo.svg" alt="Traffico">
+            <img src="image/icon/logo.svg" alt="Traffico">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -121,7 +129,7 @@
         </div><!-- container -->
       </nav><!-- navbar -->
       <div class="jumbotron text-center color3 text-light">
-        <div class="container">
+        <div class="container position-relative">
           <h4 class="display-4">Traffico에 오신 것을 환영합니다.</h4>
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
             <defs>
@@ -161,7 +169,12 @@
           </svg>
         </div><!-- container -->
       </div><!-- jumbotron -->
-      
+      <div class="position-relative inpo">
+        <img src="image/introduce1.png" alt="" class="introduce">
+        <p class="text-light">Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 
+        <br>
+        데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.</p>
+      </div>
 
 
 
