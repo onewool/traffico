@@ -5,28 +5,15 @@ import pandas as pd
 pd.set_option('display.max_row', 500)
 pd.set_option('display.max_columns', 100)
 
-# ######### 파일합치기 #########
-# import pandas as pd 
-# import numpy as np
-# import os
-
-# forders = os.listdir('data/AcDay')
-# #print(forders)
-# df_all = pd.DataFrame()
-# for i in range(0,len(forders)):
-#     if forders[i].split('.')[1] == 'csv':
-#         file = 'data/AcDay/'+forders[i]
-#         df= pd.read_csv(file,encoding='cp949', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None) 
-#         df_all = pd.concat([df_all, df])
-        
-# df_all.to_csv('./test.csv', encoding='euc-kr', header=False, index=False)
-# print('저장 완료')
-df=pd.read_csv('test.csv', encoding='euc-kr', keep_default_na=False, names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5], header=None)
+df = pd.read_csv('data/2019~2021.csv', encoding='ISO-8859-1')
 print(df.shape)
 print(df)
 
+######## 위도 경도 한 줄 내려간거 없애기 #########
+print(df['type'].isna().sum())
+print('중간완료')
 ######## 열 9개로 맞추기위한 리스트화 #########
-for i in range(0,len(df.index)):   
+for i in range(1,len(df.index)):   
     if df.iloc[i,-1] == df.iloc[i,-1]: #NaN의 경우 같아도 False를 뱉음
         df.iloc[i,7] = df.iloc[i,-2]
         df.iloc[i,8] = df.iloc[i,-1]
@@ -42,6 +29,7 @@ for i in range(0,len(df.index)):
     elif df.iloc[i,-5] == df.iloc[i,-5]:
         df.iloc[i,7] = df.iloc[i,-6]
         df.iloc[i,8] = df.iloc[i,-5]
+    print('>',end='')
 
 ######## 쓸모없는 열 제거 #########
 df = df.drop(df.columns[1:4], axis=1).drop(df.columns[5:7], axis=1).drop(df.columns[9:], axis=1)
@@ -54,6 +42,12 @@ import numpy as np
 # print(df['coordX'][2].type)
 # df = df.select_dtypes(include=['datetime',float,'number'])
 print(df)
+
+df = df.dropna()
+print(df)
+condition = df.coordX.str.contains('12') | df.coordX.str.contains('13')
+df = df.loc[condition]
+
 
 ######### 위도 경도 소숫점 2 자리수까지 반올림 #########
 print(df['coordX'].dtype)
@@ -147,7 +141,7 @@ for name, lat, lng, r in zip(df.index, df.coordY, df.coordX, df.Date):
 # popup = name은 해당 마커를 클릭하면 지정한 열의 값이 보임
 
 
-marker_cluster.save('./3년치 서울_사고건수 marker.html')
+marker_cluster.save('./2019~2021 서울 사고 marker2.html')
 print('저장완료')
 
 
