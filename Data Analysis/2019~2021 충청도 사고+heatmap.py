@@ -6,7 +6,6 @@ pd.set_option('display.max_row', 500)
 pd.set_option('display.max_columns', 100)
 
 ######### 파일합치기 #########
-import pandas as pd
 import glob
 import os 
 
@@ -95,17 +94,18 @@ print(df)
 df = df[(df.type==1)]
 print(df,'\n사고')
 
+
 #========================================================================
-#================================ 지도화 ================================
+#================================ 구역화 ================================
 #========================================================================
 
 import requests
 import json
-import urllib
+# import urllib
 
-district = ['강원도', '경기도', '경상남도', '경상북도', '광주광역시', '대구광역시', '대전광역시', '부산광역시', '서울특별시', '세종특별자치시', '울산광역시', '인천광역시', '전라남도', '전라북도', '제주특별자치도', '충청남도', '충청북도']
-for i in district:
-    district_url = urllib.parse.quote(i)
+# district = ['강원도', '경기도', '경상도', '서울','전라도', '충청도']
+# for i in district:
+#     district_url = urllib.parse.quote(i)
 
 #서울지역 json 파일
 kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/%EC%B6%A9%EC%B2%AD%EB%8F%84.json'
@@ -156,8 +156,27 @@ print('count 완료')
 
 # 지도에 쓸 새로운 dataframe만들기
 df = counts.reset_index()
+df = df.rename(index=df['geo_name']).drop(['geo_name','type', 'coordX','coordY'],axis=1)
+df = df.rename(columns={'Date':'사고 건수'})
 print(df)
 print('dataframe 완료')
+
+
+#========================================================================
+#===================== 결측치 및 이상치 확인 및 처리 =====================
+#========================================================================
+
+import matplotlib.pyplot as plt
+print(df.isna().sum())
+plt.rcParams['figure.figsize'] = (4,6)
+plt.title('충청도 시군구별 사고건수 분포')
+df.boxplot('사고 건수')
+plt.show()
+
+
+#========================================================================
+#================================ 지도화 ================================
+#========================================================================
 
 import folium
 #시도 center정하기
@@ -181,24 +200,18 @@ print('html 저장완료')
 #========================================================================
 
 #상위 10개 시군구 sorting
-df = df.rename(index=df['geo_name']).drop(['geo_name','type', 'coordX','coordY'],axis=1)
-df = df.rename(columns={'Date':'사고 건수'})
 df = df.sort_values(by='사고 건수', ascending=False).head(10)
 print(df)
 
-import matplotlib.pyplot as plt
-
+#pieplot설정
 plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['font.size'] = 10
 plt.rcParams['figure.figsize'] = (10,6)
 colors = ['#3F2DA5','#6146D9','#7354F4','#7E6CFB','#7E84F3','#7D99ED','#77ADE6','#70C2DF','#74D3DC','#9EDFE5','#C3EBEF']
 wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 5}
 
-import numpy as np
-
 tx = list(df['사고 건수'])
 print(tx)
-
 labels = df.index
 print(labels)
 
