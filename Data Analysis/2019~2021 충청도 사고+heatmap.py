@@ -95,7 +95,9 @@ print(df)
 df = df[(df.type==1)]
 print(df,'\n사고')
 
-#================================================================================
+#========================================================================
+#================================ 지도화 ================================
+#========================================================================
 
 import requests
 import json
@@ -173,3 +175,36 @@ folium.Choropleth(geo_data=jsonData,
                   ).add_to(m)
 m.save('./2019~2021 충청도사고_heatmap.html')
 print('html 저장완료')
+
+#========================================================================
+#================================ pieplot ================================
+#========================================================================
+
+#상위 10개 시군구 sorting
+df = df.rename(index=df['geo_name']).drop(['geo_name','type', 'coordX','coordY'],axis=1)
+df = df.rename(columns={'Date':'사고 건수'})
+df = df.sort_values(by='사고 건수', ascending=False).head(10)
+print(df)
+
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['font.size'] = 10
+plt.rcParams['figure.figsize'] = (10,6)
+colors = ['#3F2DA5','#6146D9','#7354F4','#7E6CFB','#7E84F3','#7D99ED','#77ADE6','#70C2DF','#74D3DC','#9EDFE5','#C3EBEF']
+wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 5}
+
+import numpy as np
+
+tx = list(df['사고 건수'])
+print(tx)
+
+labels = df.index
+print(labels)
+
+fig, ax, autopcts= plt.pie(tx,labels=labels, autopct='%.0f%%',pctdistance=0.75, startangle=260, counterclock=False, colors=colors, wedgeprops=wedgeprops)
+plt.setp(autopcts, **{'color':'white', 'weight':'bold', 'fontsize':11})
+plt.title('충청도 시군구별 사고건수 상위10개')
+plt.ylabel(None)
+plt.show()
+
