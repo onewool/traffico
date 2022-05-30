@@ -76,38 +76,47 @@ condition = df.coordX.str.contains('12') | df.coordX.str.contains('13')
 df = df.loc[condition]
 
 ######### 위도 경도 소숫점 2 자리수까지 반올림 #########
-# print(df['coordX'].dtype)
-# print(df['coordY'].dtype)
+print(df['coordX'].dtype)
+print(df['coordY'].dtype)
 df['coordX'] = df['coordX'].astype(np.float)
 df['coordY'] = df['coordY'].astype(np.float)
-# print(df['coordX'].dtype)
-# print(df['coordY'].dtype)
-# df['coordX'] = np.around(df['coordX'],2)
-# df['coordY'] = np.around(df['coordY'],2)
-# print(df)
-print('type변경완료')
+print(df['coordX'].dtype)
+print(df['coordY'].dtype)
+df['coordX'] = np.around(df['coordX'],2)
+df['coordY'] = np.around(df['coordY'],2)
+print(df)
+print('반올림완료')
 
 ######### type '공사(0)', '사고(1)' 원인만 보기 #########
 df =  df[(df.type==0) | (df.type==1)]
 print(df)
-# df = df[(df.type==0)]
-# print(df,'\n공사')
-df = df[(df.type==1)]
-print(df,'\n사고')
+fix = df[(df.type==0)]
+print(fix)
+accident = df[(df.type==1)]
+print(accident)
+
+######### 사고에서 같은 위도 경도끼리 묶기 #########
+groupedAcci = accident.groupby(['coordX','coordY'])
+print(groupedAcci)
+
+
+######### 사고에서 같은 위도 경도의 사고건수 count() #########
+counts = groupedAcci.count()
+print(counts)
+
+
+# 지도에 쓸 새로운 dataframe만들기
+df = counts.reset_index()
+print(df)
 
 #================================================================================
 
 import requests
 import json
-import urllib
 
-district = ['강원도', '경기도', '경상남도', '경상북도', '광주광역시', '대구광역시', '대전광역시', '부산광역시', '서울특별시', '세종특별자치시', '울산광역시', '인천광역시', '전라남도', '전라북도', '제주특별자치도', '충청남도', '충청북도']
-for i in district:
-    district_url = urllib.parse.quote(i)
 
 #서울지역 json 파일
-kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/%EC%84%9C%EC%9A%B8.json'
-print('json파일 불러옴')
+kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/hangjeongdong_%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C.geojson'
 
 response = requests.get(kr_distinct_geojson)
 dictres = response.json()
@@ -117,10 +126,10 @@ jsonData = json.loads(c)
 #json파일 dictionary로 바꿈
 geo_dict = {}
 for dict_row in dictres['features'] :
-    geo_name = dict_row['properties']['SIG_KOR_NM'];
-    geo_value = dict_row['geometry']['coordinates'][0];
+    geo_name = dict_row['properties']['sggnm'];
+    geo_value = dict_row['geometry']['coordinates'][0][0];
     geo_dict[geo_name] = geo_value
-print('geo_name 불러오기 완료')
+print(geo_dict)
 
 from shapely.geometry import Point, Polygon
 
@@ -140,22 +149,6 @@ print(df['geo_name'])
 print(df.isnull().sum())
 df = df.dropna(axis=0)
 print(df)
-print('geo_name 붙이기 완료')
-
-######### 사고에서 같은 geo_name끼리 묶기 #########
-grouped = df.groupby(['geo_name'])
-print(grouped)
-print('group화 완료')
-
-######### 사고에서 같은 geo_name의 사고건수 count() #########
-counts = grouped.count()
-print(counts)
-print('count 완료')
-
-# 지도에 쓸 새로운 dataframe만들기
-df = counts.reset_index()
-print(df)
-print('dataframe 완료')
 
 import folium
 #시도 center정하기
@@ -165,7 +158,7 @@ folium.GeoJson(kr_distinct_geojson).add_to(m)
 folium.Choropleth(geo_data=jsonData,
                   data=df,
                   columns=['geo_name','Date'],
-                  key_on='feature.properties.SIG_KOR_NM',
+                  key_on='feature.properties.sggnm',
                   fill_color="BuPu",
                   fill_opacity=0.6,
                   line_opacity=0.2,
@@ -173,3 +166,35 @@ folium.Choropleth(geo_data=jsonData,
                   ).add_to(m)
 m.save('./2019~2021 서울사고_heatmap.html')
 print('html 저장완료')
+
+#========================================================================
+#================================ pieplot ================================
+#========================================================================
+
+#상위 10개 시군구 sorting
+df = df.rename(index=df['geo_name']).drop(['geo_name','type', 'coordX','coordY'],axis=1)
+df = df.rename(columns={'Date':'사고 건수'})
+df = df.sort_values(by='사고 건수', ascending=False).head(10)
+print(df)
+
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['font.size'] = 10
+plt.rcParams['figure.figsize'] = (10,6)
+colors = ['#3F2DA5','#6146D9','#7354F4','#7E6CFB','#7E84F3','#7D99ED','#77ADE6','#70C2DF','#74D3DC','#9EDFE5','#C3EBEF']
+wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 5}
+
+import numpy as np
+
+tx = list(df['사고 건수'])
+print(tx)
+
+labels = df.index
+print(labels)
+
+fig, ax, autopcts= plt.pie(tx,labels=labels, autopct='%.0f%%',pctdistance=0.75, startangle=260, counterclock=False, colors=colors, wedgeprops=wedgeprops)
+plt.setp(autopcts, **{'color':'white', 'weight':'bold', 'fontsize':11})
+plt.title('서울 시군구별 사고건수 상위10개')
+plt.ylabel(None)
+plt.show()
