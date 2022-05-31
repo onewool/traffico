@@ -33,9 +33,10 @@
       }
 
       /****************************************** nav ******************************************/
-      nav{
+      .shadowsm{
         box-shadow: var(--shadow-sm);
       }
+      .brightness {filter: contrast(120%) saturate(4) grayscale(100%) brightness(3.00);}
       nav, .navbar-nav .active>.nav-link, .navbar-nav .nav-link.active,  .navbar-nav .nav-link.show, .navbar-nav .show>.nav-link, .navbar-nav .nav-link{
         color: ghostwhite;
       }
@@ -72,29 +73,21 @@
         left: 50%;
         margin-left: -250px;
         top: 0px;
-
-
       }
       .color1 {background-color: #f6aea4; !important}
       .color2 {background-color: #f1cd7e; !important}
       .color3 {background-color: #FFFFFF; !important}
       .color4 {background-color: #23418B; !important}
       .color5 {background-color: #20c7d8; !important}
-      .jumbotron{
-        height: 200px;
-      }
+
+      /****************************************** introduce ******************************************/
       .container{
         position: relative;
       }
       .container.introduce, .container.chart{
         position: relative;
         top: 900px;
-      }
-      .introduce{
-        position: relative;
-        top: 900px;
-        left: 50%;
-        margin-left: -555px;
+        text-align: center;
       }
       .introduce>img{
         display : block;
@@ -107,6 +100,25 @@
         text-align: center;
         color: #FFF;
       }
+      /****************************************** chart ******************************************/
+
+      .chart img:nth-child(1){
+        display : inline-block;
+        margin : 10px auto;
+        text-align: center;
+        width: 100%;
+      }
+      .chart img:nth-child(2){
+        display : inline-block;
+        margin : 10px auto;
+        text-align: center;
+        width: 90%;
+      }
+      .chart p{
+        margin: 100px auto;
+        color: #FFF;
+      }
+
       /****************************************** footer ******************************************/
       footer{
         position: relative;
@@ -121,7 +133,7 @@
       <nav class="navbar navbar-expand-lg fixed-top bg-transparent" >
         <div class="container">
           <a class="navbar-brand mx-auto" href="index.html">
-            <img src="image/icon/logo.svg" alt="Traffico">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/logo.svg" alt="Traffico" class="brightness">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -200,17 +212,22 @@
           </g>
         </svg>
       </div><!-- color3 container -->
+      <div class="container chart">
+        <div class="row">
+          <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/index%20%EC%9B%8C%EB%93%9C%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C.png" alt="wordcloud" class="img-fluid col-12 col-md-6">
+        <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/index%20%EC%9B%8C%EB%93%9C%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%20%EC%83%81%EC%9C%8410%EA%B0%9C%20%EB%A7%89%EB%8C%80%EA%B7%B8%EB%9E%98%ED%94%84.png" alt="wordcloud" class="img-fluid col-12 col-md-6">
+        </div>
+
+        <p>인스타그램에서 '교통' 키워드로 크롤링한 결과를 wordcloud 및 막대그래프로 확인한 결과,
+          <br>
+        관련 태그를 통해 많은 사람들이 주거지역의 안전에 관심이 많은 것을 알 수 있습니다.</p>
+      </div>
+
       <div class="container introduce">
         <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce1.png" alt="introduce" class="img-fluid">
         <p>Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 
           <br>
-        데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.</p>
-      </div>
-      <div class="container chart">
-        <img src="" alt="introduce" class="img-fluid">
-        <p>Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 
-          <br>
-        데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.</p>
+        데이터 시각화를 통해 사용자들이 보다 편리하게 지역의 교통취약구간 및 과거 돌발상황정도를 볼 수 있게 도와주는 서비스입니다.</p>
       </div>
       </div>
 
@@ -243,18 +260,21 @@
       $(function(){
         var nav = $(".container-fluid .navbar");
         var navtxt = $(".navbar-nav .active>.nav-link, .navbar-nav .nav-link.active,  .navbar-nav .nav-link.show, .navbar-nav .show>.nav-link, .navbar-nav .nav-link");
+        var img = $("nav img");
         $(window).scroll(function(){
          var scrollTop =$("html,body").scrollTop();
          if (scrollTop>100) {
           nav.removeClass("bg-transparent");
-          nav.addClass("color3");
+          nav.addClass("color3","shadowsm");
           navtxt.removeClass("text-white");
           navtxt.addClass("text-dark");
+          img.removeClass("brightness");
         }else{
-          nav.removeClass("color3");
+          nav.removeClass("color3","shadowsm");
           nav.addClass("bg-transparent");
           navtxt.removeClass("text-dark");
           navtxt.addClass("text-white");
+          img.addClass("brightness");
         }
       })
       })    
