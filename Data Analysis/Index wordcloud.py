@@ -44,11 +44,11 @@ driver.get('https://www.instagram.com')
 time.sleep(5)
 
 #인스타그램 로그인을 위한 계정 정보
-email = 'clairule@gmail.com'
+email = '이메일 계정을 적으시오'
 input_id = driver.find_elements_by_css_selector('input._2hvTZ.pexuQ.zyHYP')[0]
 input_id.clear()
 input_id.send_keys(email)
-password = '95spsaigin'
+password = '비밀번호를 적으시오'
 input_pw = driver.find_elements_by_css_selector('input._2hvTZ.pexuQ.zyHYP')[1]
 input_pw.clear()
 input_pw.send_keys(password)
