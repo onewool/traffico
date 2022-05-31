@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <title>Traffico</title>
-    <link rel="icon" href="image/icon/favicon.svg">
+    <link rel="icon" href="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/favicon.svg">
     <style>
       @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
@@ -80,13 +80,16 @@
       .color4 {background-color: #23418B; !important}
       .color5 {background-color: #20c7d8; !important}
 
-      /****************************************** introduce ******************************************/
+      .container-fluid.color4{
+        height: 900px;
+      }
+      /*************************************** introduce ***************************************/
       .container{
         position: relative;
       }
       .container.introduce, .container.chart{
         position: relative;
-        top: 900px;
+        top: 1000px;
         text-align: center;
       }
       .introduce>img{
@@ -98,9 +101,9 @@
       .introduce p{
         margin: 100px auto;
         text-align: center;
-        color: #FFF;
+        color: #727272;
       }
-      /****************************************** chart ******************************************/
+      /***************************************** chart *****************************************/
 
       .chart img:nth-child(1){
         display : inline-block;
@@ -116,19 +119,19 @@
       }
       .chart p{
         margin: 100px auto;
-        color: #FFF;
+        color: #727272;
       }
 
-      /****************************************** footer ******************************************/
+      /***************************************** footer *****************************************/
       footer{
         position: relative;
-        top: 900px;
+        top: 1500px;
       }
 
     </style>
   </head>
-  <body class="color4">
-    <div class="container-fluid mx-auto">
+  <body class="">
+    <div class="container-fluid mx-auto color4">
       <!-----------------네브바------------------->
       <nav class="navbar navbar-expand-lg fixed-top bg-transparent" >
         <div class="container">
