@@ -154,6 +154,7 @@
     h1 img{
       width: 30%;
     }
+    hr
     .col-xs-12.col-xl-7.mb-4 img{
       width: 100%;
     }
@@ -177,43 +178,98 @@
       .card li{
         font-size: 0.6rem;
       }
+      .card-header{
+        padding: 0.25rem 0rem;
+      }
       .card-body{
-        padding: 5px;
+        padding: 0px;
       }
     }
 
     /*Small devices (landscape phones, 576px and up)*/
     @media (min-width: 576px) and (max-width: 767.98px) {
       h1{
+        font-size: 1.5rem;
         margin: 90px 0 30px 0;
         text-align: center;
+      }
+      .h5,h5{
+        font-size: 0.8rem;
+      }
+      .card li{
+        font-size: 0.7rem;
+      }
+      .card-header{
+        padding: 0.3rem 0rem;
+      }
+      .card-body{
+        padding: 0px;
       }
     }
 
     /*Medium devices (tablets, 768px and up)*/
     @media (min-width: 768px) and (max-width: 991.98px) {
       h1{
+        font-size: 1.6rem;
         margin: 100px 0 30px 0;
         text-align: center;
+      }
+      .card li{
+        font-size: 0.8rem;
+      }
+      .h5,h5{
+        font-size: 0.9rem;
+      }
+      .rowcontents.row{
+        width: 70%;
+        margin: 0 auto
+      }
+      .card li{
+        font-size: 0.7rem;
+      }
+      .card-header{
+        padding: 0.35rem 0rem;
+      }
+      .card-body{
+        padding: 5px;
       }
     }
 
     /*Large devices (desktops, 992px and up)*/
     @media (min-width: 992px) and (max-width: 1199.98px) {
       h1{
-        margin: 110px 0 30px 0;
+        font-size: 1.7rem;
+        margin: 100px 0 20px 0;
         text-align: center;
       }
-      .swiper-slide li{
-        font-size: 1rem;
+      #introduceimg{
+        width: 80%;
+        margin: 0 auto;
+      }
+      .card li{
+        font-size: 0.9rem;
+      }
+      .card-header{
+        padding: 0.5rem 0rem;
+      }
+      .card-body{
+        padding: 8px;
       }
     }
 
     /*Extra large devices (large desktops, 1200px and up)*/
     @media (min-width: 1200px) {
       h1{
-        margin: 120px 0 30px 0;
+        font-size: 1.8rem;
+        margin: 100px 0 30px 0;
         text-align: center;
+      }
+      #introduceimg{
+        width: 80%;
+        margin: 0 auto;
+      }
+      .card li{
+        font-size: 1.1rem;
       }
     }
 
@@ -284,7 +340,9 @@
             Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.
           </h5>
           <hr>
-          <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce1.png" alt="introduce" class="img-fluid">
+          <div id="introduceimg">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce1.png" alt="introduce" class="img-fluid">
+          </div>
         </div>
       </div>
       <div class="swiper-slide row webdata">
@@ -307,9 +365,9 @@
               </div><!-- card-header -->
               <div class="card-body c-bg-black c-lh-2 c-bg-black  mx-auto">
                 <pre class="border-0 text-white">{
-                  "<span class="text-warning">index</span>" : "사고 건 수",
+                  <span class="text-warning">index</span> : "사고 건 수",
                   <div class="row">
-"<span class="text-warning">column</span>" : [
+<span class="text-warning">column</span> : [
 "생성일"
 "사고ID"
 "발생 일시"
@@ -320,16 +378,12 @@
 "동경"
 "북위"
 ],
-"<span class="text-warning">data</span>" :  [
+<span class="text-warning">data</span> :  [
 "발생 일시"
 "분류명"
 "경도"
 "위도"
-]</div>}
-                </pre>
-              </div><!-- card-body -->
-            </div><!-- card -->
-          </div><!-- col-xs-12 col-lg-4 mb-4 -->
+]</div>}</pre></div><!-- card-body --></div><!-- card --></div><!-- col-xs-12 col-lg-4 mb-4 -->
         </div>
       </div>
       <div class="swiper-slide row d-flex Pandas">
