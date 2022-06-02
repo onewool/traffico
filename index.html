@@ -58,8 +58,8 @@
         list-style: none;
       }
       .navbar-toggler{
-        background-color: #23418B;
-        border-color: #395291;
+        background-color: transparent;
+        border-color: #9E9E9E;
       }
       .navbar-toggler-icon{
         color: ghostwhite;
@@ -280,6 +280,7 @@
         var nav = $(".container-fluid .navbar");
         var navtxt = $(".navbar-nav .active>.nav-link, .navbar-nav .nav-link.active,  .navbar-nav .nav-link.show, .navbar-nav .show>.nav-link, .navbar-nav .nav-link");
         var img = $("nav img");
+        var toggle = $(".navbar-toggler-icon");
         $(window).scroll(function(){
          var scrollTop =$("html,body").scrollTop();
          if (scrollTop>100) {
@@ -288,8 +289,9 @@
           navtxt.removeClass("text-white");
           navtxt.addClass("text-dark");
           img.removeClass("brightness");
+          toggle.addClass("text-dark");
         }else{
-
+          toggle.removeClass("text-dark");
           nav.removeClass("bg-white");
           nav.addClass("color3","shadowsm");
           navtxt.removeClass("text-dark");
