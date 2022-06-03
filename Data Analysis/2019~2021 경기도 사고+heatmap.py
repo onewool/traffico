@@ -5,6 +5,7 @@ import pandas as pd
 pd.set_option('display.max_row', 500)
 pd.set_option('display.max_columns', 100)
 
+######### 파일합치기 #########
 df = pd.read_csv('data/2019~2021.csv', encoding='ISO-8859-1')
 print(df.shape)
 print(df)
@@ -71,9 +72,9 @@ print('type변경완료')
 
 ######### type '공사(0)', '사고(1)' 원인만 보기 #########
 df =  df[(df.type==0) | (df.type==1)]
-print(df)
+#print(df)
 
-df.to_csv('./2019~2021(공사,사고).csv', encoding='euc-kr', header=False, index=True)
+#df.to_csv('./2019~2021(공사,사고).csv', encoding='euc-kr', header=False, index=True)
 
 # df = df[(df.type==0)]
 # print(df,'\n공사')
@@ -87,7 +88,9 @@ print(df,'\n사고')
 
 import requests
 import json
-
+#========================================================================
+#========================= 공사, 사고 데이터 =============================
+#========================================================================
 #df = pd.read_csv('data/2019~2021(공사,사고).csv', encoding='ISO-8859-1',names=['dd','Date','type','coordX','coordY'] )
 # import urllib
 
@@ -95,8 +98,8 @@ import json
 # for i in district:
 #     district_url = urllib.parse.quote(i)
 
-#경상도지역 json 파일
-kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/%EA%B2%BD%EC%83%81%EB%8F%84.json'
+#경기도지역 json 파일
+kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/%EA%B2%BD%EA%B8%B0%EB%8F%84.json'
 print('json파일 불러옴')
 
 response = requests.get(kr_distinct_geojson)
@@ -153,7 +156,7 @@ print(df)
 
 import folium
 #시도 center정하기
-center = [35.754217, 128.664734]
+center = [37.567167, 127.190292]
 m = folium.Map(location = center,zoom_start = 9)
 folium.GeoJson(kr_distinct_geojson).add_to(m)
 folium.Choropleth(geo_data=jsonData,
@@ -163,9 +166,9 @@ folium.Choropleth(geo_data=jsonData,
                   fill_color="BuPu",
                   fill_opacity=0.6,
                   line_opacity=0.2,
-                  legend_name="경상도"
+                  legend_name="경기도"
                   ).add_to(m)
-m.save('./2019~2021 경상도사고_heatmap.html')
+m.save('./2019~2021 경기도사고_heatmap.html')
 print('html 저장완료')
 
 
@@ -187,7 +190,7 @@ import matplotlib.pyplot as plt
 print(df.isna().sum())
 plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['figure.figsize'] = (4,6)
-plt.title('경상도 시군구별 사고건수 분포')
+plt.title('경기도 시군구별 사고건수 분포')
 df.boxplot('사고 건수')
 plt.show()
 
@@ -218,12 +221,12 @@ labels1 = df2.index
 
 fig, ax, autopcts= plt.pie(tx,labels=labels, autopct='%.0f%%',pctdistance=0.75, startangle=260, counterclock=False, colors=colors, wedgeprops=wedgeprops)
 plt.setp(autopcts, **{'color':'white', 'weight':'bold', 'fontsize':11})
-plt.title('경상도 시군구별 사고건수 상위10개')
+plt.title('경기도 시군구별 사고건수 상위10개')
 plt.ylabel(None)
 plt.show()
 
 plt.bar(labels1,tx1,color='purple')
-plt.title('경상도 시군구별 사고건수 하위10개')
+plt.title('경기도 시군구별 사고건수 하위10개')
 plt.xticks(rotation=45)
 plt.grid()
 for x, y in enumerate(df2['사고 건수']):
