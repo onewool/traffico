@@ -173,7 +173,7 @@ print(df)
 
 import folium
 #시도 center정하기
-center = [37.566345, 126.977893]
+center = [37.540705, 126.956764]
 m = folium.Map(location = center,zoom_start = 11)
 folium.GeoJson(kr_distinct_geojson).add_to(m)
 folium.Choropleth(geo_data=jsonData,

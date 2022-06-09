@@ -5,23 +5,6 @@ import pandas as pd
 pd.set_option('display.max_row', 500)
 pd.set_option('display.max_columns', 100)
 
-######### 파일합치기 #########
-import glob
-import os 
-'''
-input_file = './data/AcDay'
-output_file = './data/2019~2021.csv'
-allFile_list = glob.glob(os.path.join(input_file,'Ac_Day_*'))
-allData = [] #읽어들인 csv파일 내용을 저장할 빈 리스트를 하나 만듬
-for file in allFile_list:
-    df = pd.read_csv(file, encoding='cp949', sep = ',',
-                  keep_default_na=False,
-                  names=['Date','accID','startDate','endDate','type','eventType','message','coordX', 'coordY',1,2,3,4,5],
-                  header=None) #for구문으로 csv파일들을 읽기
-    allData.append(df)
-dataCombine = pd.concat(allData, axis=0, ignore_index=True) #concat
-dataCombine.to_csv(output_file, index=False)
-print('2019~2021.csv 저장완료')
 df = pd.read_csv('data/2019~2021.csv', encoding='ISO-8859-1')
 print(df.shape)
 print(df)
@@ -51,10 +34,10 @@ print('for문완료')
 ######## 쓸모없는 열 제거 #########
 df = df.drop(df.columns[1:4], axis=1).drop(df.columns[5:7], axis=1).drop(df.columns[9:], axis=1)
 print(df)
-'''
+
 ######### numpy 불러오기 #########
 import numpy as np
-'''
+
 # coordX와 coordY가 숫자가 아니면 행 지우기
 # print(df['coordX'][2].type)
 # df = df.select_dtypes(include=['datetime',float,'number'])
@@ -96,7 +79,7 @@ df.to_csv('./2019~2021(공사,사고).csv', encoding='euc-kr', header=False, ind
 # print(df,'\n공사')
 df = df[(df.type==1)]
 print(df,'\n사고')
-'''
+
 
 #========================================================================
 #================================ 구역화 ================================
@@ -105,15 +88,15 @@ print(df,'\n사고')
 import requests
 import json
 
-df = pd.read_csv('data/2019~2021(공사,사고).csv', encoding='ISO-8859-1',names=['dd','Date','type','coordX','coordY'] )
+#df = pd.read_csv('data/2019~2021(공사,사고).csv', encoding='ISO-8859-1',names=['dd','Date','type','coordX','coordY'] )
 # import urllib
 
 # district = ['강원도', '경기도', '경상도', '서울','전라도', '충청도']
 # for i in district:
 #     district_url = urllib.parse.quote(i)
 
-#충청지역 json 파일
-kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/%EC%B6%A9%EC%B2%AD%EB%8F%84.json'
+#경상도지역 json 파일
+kr_distinct_geojson = 'https://raw.githubusercontent.com/onewool/traffico/main/Data%20Analysis/data/geojson/%EA%B2%BD%EC%83%81%EB%8F%84.json'
 print('json파일 불러옴')
 
 response = requests.get(kr_distinct_geojson)
@@ -170,8 +153,8 @@ print(df)
 
 import folium
 #시도 center정하기
-center = [36.6230802, 127.3986983]
-m = folium.Map(location = center,zoom_start = 10)
+center = [35.754217, 128.664734]
+m = folium.Map(location = center,zoom_start = 9)
 folium.GeoJson(kr_distinct_geojson).add_to(m)
 folium.Choropleth(geo_data=jsonData,
                   data=df,
@@ -180,9 +163,9 @@ folium.Choropleth(geo_data=jsonData,
                   fill_color="BuPu",
                   fill_opacity=0.6,
                   line_opacity=0.2,
-                  legend_name="충청"
+                  legend_name="경상도"
                   ).add_to(m)
-m.save('./2019~2021 충청도사고_heatmap.html')
+m.save('./2019~2021 경상도사고_heatmap.html')
 print('html 저장완료')
 
 
@@ -204,7 +187,7 @@ import matplotlib.pyplot as plt
 print(df.isna().sum())
 plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['figure.figsize'] = (4,6)
-plt.title('충청도 시군구별 사고건수 분포')
+plt.title('경상도 시군구별 사고건수 분포')
 df.boxplot('사고 건수')
 plt.show()
 
@@ -214,11 +197,11 @@ plt.show()
 #========================================================================
 
 #상위 10개 시군구 sorting
-df = df.sort_values(by='사고 건수', ascending=False).head(10)
-print(df)
-#하위 10개 시군구 sorting
-df1 = df.sort_values(by='사고 건수', ascending=False).tail(10)
+df1 = df.sort_values(by='사고 건수', ascending=False).head(10)
 print(df1)
+#하위 10개 시군구 sorting
+df2 = df.sort_values(by='사고 건수', ascending=True).head(10)
+print(df2)
 
 #pieplot설정
 plt.rcParams['font.size'] = 10
@@ -226,18 +209,24 @@ plt.rcParams['figure.figsize'] = (10,6)
 colors = ['#3F2DA5','#6146D9','#7354F4','#7E6CFB','#7E84F3','#7D99ED','#77ADE6','#70C2DF','#74D3DC','#9EDFE5','#C3EBEF']
 wedgeprops={'width': 0.5, 'edgecolor': 'w', 'linewidth': 5}
 
-tx = list(df['사고 건수'])
+tx = list(df1['사고 건수'])
 #print(tx)
-tx1 = list(df1['사고 건수'])
-labels = df.index
+tx1 = list(df2['사고 건수'])
+labels = df1.index
 #print(labels)
-labels1 = df1.index
+labels1 = df2.index
 
 fig, ax, autopcts= plt.pie(tx,labels=labels, autopct='%.0f%%',pctdistance=0.75, startangle=260, counterclock=False, colors=colors, wedgeprops=wedgeprops)
 plt.setp(autopcts, **{'color':'white', 'weight':'bold', 'fontsize':11})
-plt.title('충청도 시군구별 사고건수 상위10개')
+plt.title('경상도 시군구별 사고건수 상위10개')
 plt.ylabel(None)
 plt.show()
 
-plt.bar()
+plt.bar(labels1,tx1,color='purple')
+plt.title('경상도 시군구별 사고건수 하위10개')
+plt.xticks(rotation=45)
+plt.grid()
+for x, y in enumerate(df2['사고 건수']):
+    text = '%d건' %y
+    plt.text(x,y,text, fontsize=12, c='red', horizontalalignment='center')
 plt.show()

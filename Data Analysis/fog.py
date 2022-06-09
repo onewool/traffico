@@ -29,5 +29,4 @@ m = folium.Map(location=[36.423463, 127.938300], zoom_start=8)
 for i in df1.index :
     marker = folium.CircleMarker([df1.loc[i,'latitude'],df1.loc[i,'longitude']], radius=df1['properLength'][i]*1.5, popup=df1['구간명'][i], icon = folium.Icon(color = 'blue', icon = 'info-sign'))
     marker.add_to(m)
-    
 m.save('Korea_fog.html')
