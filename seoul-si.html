@@ -1,0 +1,386 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/favicon.svg">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/4697f4666c.js" crossorigin="anonymous"></script>
+
+    <title>Gyeonggi</title>
+    <link rel="favicon" href="img/favicon.ico">
+    <style>
+      @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+      /*customizing css*/
+      
+      .my-10{
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+      }
+      /*폰트*/
+      body{
+        position: relative;
+        height: 100%;
+        font-family: 'NanumSquare';
+        font-weight: 600;
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+      }
+      /*네브바 안의 로고 이미지*/
+      a.navbar-brand img{
+        height: 60px;
+
+      }
+      li{
+          list-style: none;
+        }
+      .c-imgSize{
+        width: 40px;
+        height: 40px;
+      }
+      :root {
+        --shadow-sm:  0 0.3px 0.4px rgba(0, 0, 0, 0.025),
+        0 0.9px 1.5px rgba(0, 0, 0, 0.05), 
+        0 3.5px 6px rgba(0, 0, 0, 0.1);
+      }
+      .color1 {background-color: #f6aea4; !important}
+      .color2 {background-color: #f1cd7e; !important}
+      .color3 {background-color: #FFFFFF; !important}
+      .color4 {background-color: #23418B; !important}
+      .color5 {background-color: #5FB6BF; !important}
+
+      /****************************************** nav ******************************************/
+      .shadowsm{
+        box-shadow: var(--shadow-sm);
+      }
+      .brightness {filter: contrast(120%) saturate(4) grayscale(100%) brightness(4.00);}
+      nav, .navbar-nav .active>.nav-link, .navbar-nav .nav-link.active,  .navbar-nav .nav-link.show, .navbar-nav .show>.nav-link, .navbar-nav .nav-link{
+        color: ghostwhite;
+      }
+      .navbar-brand img{
+        height: 60px;
+      }
+      a.nav-link {
+        width: 100%;
+        height: 100%;
+      }
+      li{
+        list-style: none;
+      }
+      .navbar-toggler{
+        background-color: transparent;
+        border-color: #9E9E9E;
+      }
+      .navbar-toggler-icon{
+        color: ghostwhite;
+        width: 1em;
+        height: 1em;
+      }
+
+      /****************************************** button ******************************************/
+      .button-group{
+        position: absolute;
+        top: 100px;
+        left: 5%;
+        z-index: 1;
+      }
+
+      /***************************************** maps *****************************************/
+      #maps{
+        position: relative;
+        top: 200px;
+      }
+      iframe{
+        position: relative;
+        left: -100%;
+        width: 300%;
+      }
+
+      /***************************************** charts *****************************************/
+      .charts{
+        position: relative;
+        top: 300px;
+      }
+
+
+      /***************************************** footer *****************************************/
+      footer{
+        position: relative;
+        top: 600px;
+      }
+      /****************************************** mediaquery ******************************************/
+    /*Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+      .button-group{
+        top: 2%;
+      }
+    }
+
+    /*Small devices (landscape phones, 576px and up)*/
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      .button-group{
+        top: 2%;
+      }
+    }
+
+    /*Medium devices (tablets, 768px and up)*/
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .button-group{
+        left: -13%;
+      }
+    }
+
+    /*Large devices (desktops, 992px and up)*/
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      .button-group{
+        left: -3%;
+      }
+    }
+
+
+      /****************************************** fadeInUp ******************************************/
+    /* Animation */
+
+    @keyframes fadeInUp {
+      from {
+        transform: translate3d(0,40px,0)
+      }
+
+      to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes fadeInUp {
+      from {
+        transform: translate3d(0,40px,0)
+      }
+
+      to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+      }
+    }
+
+    .animated2 {
+      animation-duration: 2s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-fill-mode: both
+    }
+    .animated4 {
+      animation-duration: 4s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-fill-mode: both
+    }
+    .animated3 {
+      animation-duration: 3s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 3s;
+      -webkit-animation-fill-mode: both
+    }
+
+    .animatedFadeInUp {
+      opacity: 0
+    }
+
+    .fadeInUp {
+      opacity: 0;
+      animation-name: fadeInUp;
+      -webkit-animation-name: fadeInUp;
+    }
+
+
+    </style>
+  </head>
+  <body class="color4">
+    <div class="container-fluid px-0">
+      <!-----------------네브바------------------->
+      <nav class="navbar navbar-expand-lg fixed-top color4" >
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="index.html">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/logo.svg" alt="Traffico" class="brightness">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+          </button><!-- navbar-toggler -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="./introduce.html">서비스 안내<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  지역별 데이터
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">서울</a>
+                  <a class="dropdown-item" href="#">경기</a>
+                  <a class="dropdown-item" href="#">강원</a>
+                  <a class="dropdown-item" href="#">경상</a>
+                  <a class="dropdown-item" href="#">충청</a>
+                  <a class="dropdown-item" href="#">전라</a>
+                </div>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">알림마당</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">이용안내</a>
+              </li>
+            </ul><!-- navbar-nav -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link">로그인</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">회원가입</a>
+              </li>
+            </ul><!-- navbar-nav -->
+          </div><!-- collapse -->
+        </div><!-- container -->
+      </nav><!-- navbar -->
+      <div class="container mx-auto">
+        <div class="row mx-auto animated2 animatedFadeInUp fadeInUp" id="maps">
+          <div class="col-md-2 justify-center button-group filter-button-group">
+            <ul>
+              <button type="button" class="btn accident"><img src="img/acci01.png" alt="" class="c-imgSize"></button>
+              <button type="button" class="btn fog"><img src="img/cons02.png" alt="" class="c-imgSize"></button>
+              <button type="button" class="btn snowflake"><img src="img/fog03.png" alt="" class="c-imgSize"></button>
+              <button type="button" class="btn landslide"><img src="img/frozen04.png" alt="" class="c-imgSize"></button>
+            </ul>
+          </div>
+          <div class="mx-auto row">
+            <div class="accident col-12">
+              <iframe src="Data Analysis/2019~2021 서울사고_heatmap.html" frameborder="0" height=500></iframe>
+            </div>
+          </div>
+          <div class="mx-auto row">
+            <div class="accident col-12">
+              <iframe src="Data Analysis/2019~2021 서울사고_heatmap.html" frameborder="0" height=500></iframe>
+            </div>
+          </div>
+          <div class="mx-auto row">
+            <div class="accident col-12">
+              <iframe src="Data Analysis/2019~2021 서울사고_heatmap.html" frameborder="0" height=500></iframe>
+            </div>
+          </div>
+          <div class="mx-auto row">
+            <div class="accident col-12">
+              <iframe src="Data Analysis/2019~2021 서울사고_heatmap.html" frameborder="0" height=500></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="row border charts mx-auto animated4 animatedFadeInUp fadeInUp">
+          <div class="col-md-5">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/accident.png" alt="">
+          </div>
+          <div class="offset-md-2 col-md-5">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/accident.png" alt="">
+          </div>
+        </div>
+      </div><!-- container -->
+      <div class="container-fluid c-back-grey">
+        <div class="container">
+          <div class="row py-3">
+            <div class="col">
+              <h3 class="font-weight-bold">경기도 지역의 정보</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+              <h5 class="text-center">2019~2021년 사고 다발 지역 <span class="c-red">상위 10</span></h5>
+              <img src="graph/GyeonggiAcc01.png" class="img-fluid text-align-center">
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <h5 class="text-center">2019~2021년 사고 다발 지역 <span class="c-red">하위 10</span></h5>
+              <img src="graph/GyeonggiAcc02.png" class="img-fluid pt-3 text-align-center">
+            </div>
+          </div>
+          <div class="row py-3">
+            <div class="col-md-6 col-xs-12">
+              <h5 class="text-center">2019~2021년 공사 다발 지역 <span class="c-red">상위 10</span></h5>
+              <img src="graph/GyeonggiCon01.png" class="img-fluid text-align-center">
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <h5 class="text-center">2019~2021년 공사 다발 지역 <span class="c-red">하위 10</span></h5>
+              <img src="graph/GyeonggiCon02.png" class="img-fluid pt-3 text-align-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!----------------- footer------------------->
+      <footer class="container-fluid bg-secondary text-white">
+        <div class="row">
+          <hr style="width: 95%">
+          <div class="col-md-4 col-xs-12">
+            <button type="button" class="btn btn-secondary btn-lg">사이트 소개</button>
+            <button type="button" class="btn btn-secondary btn-lg">사이트 맵</button>
+          </div>
+          <ul class="col-md-4 col-xs-12">
+            <li><em>· 이름 :</em> 유한울</li>
+            <li><em>· 전화번호 :</em> 010-9156-8768</li>
+            <li><em>· 이메일 :</em> docus17@gmail.com</li>
+          </ul>
+          <p class="col-md-4 col-xs-12">Copyright © 2022, Traffico. All rights reserved.</p>
+        </div>
+      </footer>
+      <!----------------- footer------------------->
+    </div><!-- container-fluid -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+
+
+
+    <!-- nav javascript -->
+    <script>
+      $(function(){
+        var nav = $(".container-fluid .navbar");
+        var navtxt = $(".navbar-nav .active>.nav-link, .navbar-nav .nav-link.active,  .navbar-nav .nav-link.show, .navbar-nav .show>.nav-link, .navbar-nav .nav-link");
+        var img = $("nav img");
+        var toggle = $(".navbar-toggler-icon");
+        $(window).scroll(function(){
+         var scrollTop =$("html,body").scrollTop();
+         if (scrollTop>100) {
+          nav.removeClass("color3","shadowsm");
+          nav.addClass("bg-white");
+          navtxt.removeClass("text-white");
+          navtxt.addClass("text-dark");
+          img.removeClass("brightness");
+          toggle.addClass("text-dark");
+        }else{
+          toggle.removeClass("text-dark");
+          nav.removeClass("bg-white");
+          nav.addClass("color3","shadowsm");
+          navtxt.removeClass("text-dark");
+          navtxt.addClass("text-white");
+          img.addClass("brightness");
+        }
+      })
+      })    
+    </script>
+
+    <!-- iframe 크기 맞추기 용 javascript -->
+   <script>
+     function autoResizeIframe() {  $('iframe').on('load', function() {   if(this.contentDocument) {      $(this).height(this.contentDocument.documentElement.scrollHeight);    }   else {      $(this).height(this.contentWindow.document.body.scrollHeight);    } });}
+   </script>
+</body>
+</html>
