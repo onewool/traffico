@@ -1,0 +1,635 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/favicon.svg">
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/4697f4666c.js" crossorigin="anonymous"></script>
+
+    <title>introduce</title>
+    <style>
+      @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+      /*폰트*/
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        font-family: 'NanumSquare';
+        font-weight: 600;
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+      }
+      pre{
+        font-family: 'NanumSquare';
+      }
+      .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
+        padding: 0;
+        margin: auto;
+      }
+      h1{
+        margin: 30px 0;
+        text-align: center;
+      }
+      .rowcontents ul{
+        padding: 20px;
+        margin: 5px;
+      }
+      .rowcontents li:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #29549f;
+        font-weight: bold;
+        display: inline-block;
+        content: "▶";
+      }
+      .rowcontents li{
+        list-style: none;
+        position: relative;
+        padding-left: 3em;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      .color1 {background-color: #f6aea4; !important}
+      .color2 {background-color: #f1cd7e; !important}
+      .color3 {background-color: #FFFFFF; !important}
+      .color4 {background-color: #23418B; !important}
+      .color5 {background-color: #5FB6BF; !important}
+      :root {
+        --shadow-sm:  0 0.3px 0.4px rgba(0, 0, 0, 0.025),
+        0 0.9px 1.5px rgba(0, 0, 0, 0.05), 
+        0 3.5px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /****************************************** nav ******************************************/
+      .shadowsm{
+        box-shadow: var(--shadow-sm);
+      }
+      .brightness {filter: contrast(120%) saturate(4) grayscale(100%) brightness(4.00);}
+      nav, .navbar-nav .active>.nav-link, .navbar-nav .nav-link.active,  .navbar-nav .nav-link.show, .navbar-nav .show>.nav-link, .navbar-nav .nav-link{
+        color: ghostwhite;
+      }
+      .navbar-brand img{
+        height: 60px;
+      }
+      a.nav-link {
+        width: 100%;
+        height: 100%;
+      }
+      li{
+        list-style: none;
+      }
+      .navbar-toggler{
+        background-color: #23418B;
+        border-color: #395291;
+      }
+      .navbar-toggler-icon{
+        color: ghostwhite;
+        width: 1em;
+        height: 1em;
+      }
+
+      /****************************************** swiper ******************************************/
+      /*pagination*/
+      :root {
+        --swiper-theme-color: #FFFFFF;
+        --swiper-theme-color2: color4;
+        --swiper-pagination-color: var(--swiper-theme-color);
+        --swiper-pagination-bullet-width: 3px;
+        --swiper-pagination-bullet-height: 50px;
+        --swiper-pagination-bullet-inactive-color: #657AAE;
+        --swiper-pagination-bullet-inactive-opacity: 0.3;
+        --swiper-pagination-bullet-opacity: 1;
+        --swiper-pagination-bullet-horizontal-gap: 4px;
+        --swiper-pagination-bullet-vertical-gap: 6px;
+      }
+      .swiper-pagination-bullet {
+        width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 2px));
+        height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 50px));
+        display: inline-block;
+        border-radius: 15%;
+        background: var(--swiper-pagination-bullet-inactive-color, #000);
+        opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+      }
+      .swiper-pagination-bullet-active {
+        opacity: var(--swiper-pagination-bullet-opacity, 0.8);
+        background: --swiper-theme-color;
+      }
+      .swiper-container {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .swiper-slide {
+        margin: 0 auto;
+      }
+      .swiper-wrapper{
+        margin: 0 auto;
+      }
+      .title{
+        margin-right: auto !important;
+        margin-left: auto !important;
+      }
+      .rowcontents{
+       align-items: center;
+     }
+     .webdata .rowcontents, .folium .rowcontents{
+       align-items: stretch !important;
+     }
+     /****************************************** title ******************************************/
+     #logoimg{
+      width: 10%;
+      filter: contrast(120%) saturate(4) grayscale(100%) brightness(5.00);
+     }
+     h5{
+        font-weight: 400;
+      }
+
+
+     /****************************************** card ******************************************/
+     .swiper-slide .card{
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+    .pandas .card, .matplotlib .card{
+      color: white;
+    }
+    .pandas .card li:before, .matplotlib .card li:before{
+        color: whitesmoke;
+    }
+
+    h1 img{
+      width: 30%;
+    }
+    .col-xs-12.col-xl-7 img{
+      width: 100%;
+    }
+    pre{
+      font-size: 9px;
+      overflow: visible;
+    }
+    .card-body{
+      margin: 0;
+      padding: 0px;
+    }
+    /****************************************** mediaquery ******************************************/
+    /*Extra small devices (portrait phones, less than 576px)*/
+    @media (max-width: 575.98px) {
+      .h1,h1{
+        font-size: 1.4rem;
+        margin: 90px 0 20px 0;
+      }
+      .title{
+        margin: 90px 0 20px 0;
+      }
+      .h5,h5{
+        font-size: 0.8rem;
+      }
+      .card li{
+        font-size: 0.6rem;
+      }
+      .card-header{
+        padding: 0.25rem 0rem;
+      }
+    }
+
+    /*Small devices (landscape phones, 576px and up)*/
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      h1{
+        font-size: 1.5rem;
+        margin: 90px 0 30px 0;
+        text-align: center;
+      }
+      .title{
+        margin: 90px 0 30px 0;
+      }
+      .h5,h5{
+        font-size: 0.8rem;
+      }
+      .card li{
+        font-size: 0.7rem;
+      }
+      .card-header{
+        padding: 0.3rem 0rem;
+      }
+    }
+
+    /*Medium devices (tablets, 768px and up)*/
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      h1{
+        font-size: 1.6rem;
+        margin: 100px 0 30px 0;
+        text-align: center;
+      }
+      .title{
+        margin: 100px 0 30px 0;
+      }
+      .card li{
+        font-size: 0.8rem;
+      }
+      .h5,h5{
+        font-size: 0.9rem;
+      }
+      .rowcontents.row{
+        width: 70%;
+        margin: 0 auto
+      }
+      .card li{
+        font-size: 0.7rem;
+      }
+      .card-header{
+        padding: 0.35rem 0rem;
+      }
+    }
+
+    /*Large devices (desktops, 992px and up)*/
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      h1{
+        font-size: 1.7rem;
+        margin: 100px 0 20px 0;
+        text-align: center;
+      }
+      .title{
+        margin: 100px 0 20px 0;
+      }
+      #introduceimg{
+        width: 80%;
+        margin: 0 auto;
+      }
+      .card li{
+        font-size: 0.9rem;
+        margin: 10px 0;
+      }
+      .card-header{
+        padding: 0.5rem 0rem;
+      }
+      pre{
+      font-size: 12px;
+      }
+    }
+
+    /*Extra large devices (large desktops, 1200px and up)*/
+    @media (min-width: 1200px) {
+      h1{
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      .title{
+        margin: 100px 0 30px 0;
+      }
+      #introduceimg{
+        width: 80%;
+        margin: 0 auto;
+      }
+      .card li{
+        font-size: 1.1rem;
+        margin: 20px 0;
+      }
+      pre{
+      font-size: 15px;
+      }
+    }
+
+
+    /****************************************** footer ******************************************/
+    footer{
+      font-size: 0.8em;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+    }
+    footer hr{
+      margin: 10px 0;
+    }
+
+
+    /****************************************** fadeInUp ******************************************/
+    /* Animation */
+
+    @keyframes fadeInUp {
+      from {
+        transform: translate3d(0,40px,0)
+      }
+
+      to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes fadeInUp {
+      from {
+        transform: translate3d(0,40px,0)
+      }
+
+      to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+      }
+    }
+
+    .animated2 {
+      animation-duration: 2s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-fill-mode: both
+    }
+    .animated4 {
+      animation-duration: 4s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-fill-mode: both
+    }
+    .animated3 {
+      animation-duration: 3s;
+      animation-fill-mode: both;
+      -webkit-animation-duration: 3s;
+      -webkit-animation-fill-mode: both
+    }
+
+    .animatedFadeInUp {
+      opacity: 0
+    }
+
+    .fadeInUp {
+      opacity: 0;
+      animation-name: fadeInUp;
+      -webkit-animation-name: fadeInUp;
+    }
+
+  </style>
+</head>
+<body class="container-fluid mx-auto">
+  <!-----------------네브바------------------->
+      <nav class="navbar navbar-expand-lg fixed-top color4" >
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="index.html">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/logo.svg" alt="Traffico" class="brightness">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+          </button><!-- navbar-toggler -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">서비스 안내<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  지역별 데이터
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">서울</a>
+                  <a class="dropdown-item" href="#">경기</a>
+                  <a class="dropdown-item" href="#">강원</a>
+                  <a class="dropdown-item" href="#">경상</a>
+                  <a class="dropdown-item" href="#">충청</a>
+                  <a class="dropdown-item" href="#">전라</a>
+                </div>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">알림마당</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link">이용안내</a>
+              </li>
+            </ul><!-- navbar-nav -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link">로그인</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">회원가입</a>
+              </li>
+            </ul><!-- navbar-nav -->
+          </div><!-- collapse -->
+        </div><!-- container -->
+      </nav><!-- navbar -->
+
+
+
+  <!----------------- Swiper ----------------->
+  <div class="swiper-container container-fluid">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide row d-flex color4 traffico">
+        <div class="container">
+          <div class="text-center title animated2 animatedFadeInUp fadeInUp">
+            <h1><img class="img-fluid mx-auto" src="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/logo.svg" alt="" id="logoimg"></h1>
+            <h5 class="text-center text-white">
+              Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.
+            </h5>
+          </div>
+          <hr class="animated3 animatedFadeInUp fadeInUp">
+          <div id="introduceimg" class="animated4 animatedFadeInUp fadeInUp">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce1.png" alt="introduce" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide row webdata">
+        <div class="container">
+          <div class="title animated2 animatedFadeInUp fadeInUp">
+          <h1 class="text-center">웹 데이터 수집</h1>
+          <h5 class="text-center">
+            Traffico는 Pandas DataFrame을 통해 공공기관에서 제공하는 교통 오픈데이터를 로드, 가공하고, requests와 BeautifulSoup을 통해 인스타그램 크롤링을 통해 교통에 대한 시민들의 생각을 수집합니다.
+          </h5>
+        </div>
+        <div class="row rowcontents">
+            <iframe src="./video/introduce video.mp4" frameborder="0" class="col-xs-12 col-lg-8 mb-4" height=400></iframe>
+          <div class="col-xs-12 col-lg-4">
+            <div class="card">
+              <div class="card-body mx-auto">
+                <pre>{
+                  <span class="text-warning">index</span> : "사고 건 수",
+                  <div class="row">
+<span class="text-warning">column</span> : [
+"생성일"
+"사고ID"
+"발생 일시"
+"종료 일시"
+"분류 코드""
+"분류 명"
+"메시지"
+"동경"
+"북위"
+],
+<span class="text-warning">data</span> :  [
+"발생 일시"
+"분류명"
+"경도"
+"위도"
+]</div>}</pre></div><!-- card-body --></div><!-- card --></div><!-- col-xs-12 col-lg-4 mb-4 -->
+        </div>
+        </div>
+      </div>
+      <div class="swiper-slide row d-flex pandas color4">
+        <div class="container">
+          <div class="title animated2 animatedFadeInUp fadeInUp">
+          <h1 class="text-center text-white">Pandas를 통한 변수 관리</h1>
+          <h5 class="text-center text-white">
+            Traffico는 Pandas를 통해 공공기관에서 제공하는 교통 오픈데이터 및 openAPI를 정보를 수신하고 데이터를 로드, 인코딩을 지정합니다.
+          </h5>
+        </div>
+        <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+          <div class="col-xs-12 col-lg-5 mb-4">
+            <div class="card">
+              <ul>
+                <li>소스를 수정하지 않고 모든 태그를 관리</li>
+                <li>맞춤 함수를 사용 및 체이닝 기법을 통해 목적에 맞는 수집항목 태깅</li>
+                <li>requests모듈을 통해 raw.github 데이터 불러오기</li>
+                <li>pivot, transpose와 같은 reshape 기능</li>
+                <li>groupby, pibot_table등을 통한 데이터 요약과 분석</li>
+              </ul>
+            </div><!-- card -->
+          </div><!-- col-xs-12 col-lg-5 mb-4 -->
+          <div class="col-xs-12 col-lg-7 mb-4">
+            <img class="img-fluid" src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce%20table.jpg" alt="pandas">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="swiper-slide row d-flex numpy">
+        <div class="container">
+          <div class="title animated2 animatedFadeInUp fadeInUp">
+          <h1 class="text-center">Numpy를 통한 데이터 타입 관리</h1>
+          <h5 class="text-center">
+            Traffico는 Numpy를 통해 기본적인 수치계산을 하고, 데이터 형태를 지정 및 변경합니다.
+          </h5>
+        </div>
+        <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+          <div class="col-xs-12 col-lg-7">
+            <img class="img-fluid" src="https://raw.githubusercontent.com/onewool/traffico/main/image/numpy.png" alt="numy">
+          </div>
+          <div class="col-xs-12 col-lg-5 mb-4">
+            <div class="card">
+              <ul>
+                <li>비교적 빠른 연산을 지원하며 메모리를 효율적으로 사용</li>
+                <li>astype함수를 통해 데이터 형태 변환</li>
+                <li>group화를 위해 round함수를 통한 위도 경도 소수 2번째자리까지 반올림</li>
+                <li>mean, std, var함수를 통해 산술평균, 표준편차, 분산을 계산</li>
+                <li>where, select함수를 활용한 조건식 작성</li>
+              </ul>
+            </div><!-- card -->
+          </div><!-- col-xs-12 col-lg-5 mb-4 -->
+        </div>
+        </div>
+      </div>
+      <div class="swiper-slide row d-flex matplotlib color4">
+        <div class="container">
+          <div class="title animated2 animatedFadeInUp fadeInUp">
+          <h1 class="text-center text-white">Matplotlib를 통한 데이터 시각화</h1>
+          <h5 class="text-center text-white">
+            Traffico는 Matplotlib를 통해 boxplot, scatter, barplot 등 기본적인 시각화 방법을 사용합니다.
+          </h5>
+        </div>
+        <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+          <div class="col-xs-12 col-lg-6">
+            <div class="card">
+              <ul>
+                <li>boxplot을 통한 이상치 검증</li>
+                <li>scatter를 통한 시구군별 과거 돌발상황 건수 분포도 확인</li>
+                <li>barplot을 통한 원인 별 하위 10개 시구군 비교</li>
+                <li>pieplot을 통한 원인 별 상위 10개 시구군 비교</li>
+                <li>colormap 기능을 통한 색상을 통한 데이터 강조</li>
+              </ul>
+            </div><!-- card -->
+          </div><!-- col-xs-12 col-lg-5 mb-4 -->
+          <div class="col-xs-12 col-lg-6 mb-4">
+            <img class="img-fluid" src="https://raw.githubusercontent.com/onewool/traffico/main/image/matplotlib.jpg" alt="">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="swiper-slide row folium">
+        <div class="container">
+          <div class="title animated2 animatedFadeInUp fadeInUp">
+          <h1 class="text-center">Folium을 통한 지도 데이터 활용</h1>
+          <h5 class="text-center">
+            Traffico는 Folium의 OpenStreetMap 및 공공 GeoJson 데이터를 통해 지도 데이터를 활용합니다.
+          </h5>
+        </div>
+        <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+          <iframe src="./Data Analysis/Si_Do_map.html" frameborder="0" class="col-xs-12 col-lg-7"></iframe>
+          <div class="col-xs-12 col-lg-5">
+            <div class="card">
+              <ul>
+                <li>folium모듈을 사용해 공간 시각화 및 지도위에 데이터 시각화</li>
+                <li>GeoJson으로 대한민국 행정구역 시도, 시군구에 대한 공간 데이터 불러오기</li>
+                <li>위경도 정보로 marker활용 choropleth 그리기</li>
+                <li>원으로 범위를 표기해 각 시도별 교통 취약구간 시각화</li>
+                <li>html 파일로 내보내기 및 iframe으로 웹사이트 연결</li>
+              </ul>
+            </div><!-- card -->
+          </div><!-- col-xs-12 col-lg-4 mb-4 -->
+        </div>
+      </div>
+      <!----------------- footer------------------->
+      <footer class="container-fluid bg-secondary text-white">
+        <div class="row">
+          <hr style="width: 95%">
+          <div class="col-md-4 col-xs-12">
+            <button type="button" class="btn btn-secondary btn-md">사이트 소개</button>
+            <button type="button" class="btn btn-secondary btn-md">사이트 맵</button>
+          </div>
+          <ul class="col-md-4 col-xs-12">
+            <li><em>· 이름 :</em> 유한울</li>
+            <li><em>· 전화번호 :</em> 010-9156-8768</li>
+            <li><em>· 이메일 :</em> docus17@gmail.com</li>
+          </ul>
+          <p class="col-md-4 col-xs-12">Copyright © 2022, Traffico. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+
+    <!-- swiper javascript -->
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        mousewheel: true,
+        pagination: {
+         el: '.swiper-pagination',
+         clickable: true,
+       },
+     });
+   </script>
+
+   <!-- iframe 크기 맞추기 용 javascript -->
+   <script>
+     function autoResizeIframe() {  $('iframe').on('load', function() {   if(this.contentDocument) {      $(this).height(this.contentDocument.documentElement.scrollHeight);    }   else {      $(this).height(this.contentWindow.document.body.scrollHeight);    } });}
+   </script>
+
+</body>
+</html>
