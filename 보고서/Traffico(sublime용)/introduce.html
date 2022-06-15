@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko" class="  ext-strict"><head>
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="http://3.35.152.231/static/favicon.svg">
+
+    <title>traffico!</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- traffico CSS -->
+
+    <link rel="stylesheet" type="text/css" href="http://3.35.152.231/static/style.css">
+
+    <!-- css Start -->
+    
+<link rel="stylesheet" type="text/css" href="http://3.35.152.231/static/swiper.css">
+
+
+    <!-- css End -->
+
+</head>
+<body class="color4 ext-webkit ext-chrome" id="syno-nsc-ext-gen3">
+<div class="wrapper">
+    <!-- 네비게이션바 -->
+    <!-----------------네브바------------------->
+<div class="container-fluid mx-auto">
+      <nav class="navbar navbar-expand-lg fixed-top color4">
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="./index.html">
+            <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/logo.svg" alt="Traffico" class="brightness">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+          </button><!-- navbar-toggler -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="./introduce.html">서비스 안내<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  지역별 데이터
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="./seoul.html">서울</a>
+                  <a class="dropdown-item" href="./gyeonggi.html">경기</a>
+                  <a class="dropdown-item" href="./gangwon.html">강원</a>
+                  <a class="dropdown-item" href="./gyeongsang.html">경상</a>
+                  <a class="dropdown-item" href="./chungcheong.html">충청</a>
+                  <a class="dropdown-item" href="./jeolla.html">전라</a>
+                </div>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href=".board.html"> 문의 게시판</a>
+              </li>
+
+            </ul><!-- navbar-nav -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                
+                <a class="nav-link" href="./login.html">로그인</a>
+                
+              </li>
+              <li class="nav-item">
+                
+                <a class="nav-link" href="./signup.html">회원가입</a>
+                
+              </li>
+            </ul><!-- navbar-nav -->
+          </div><!-- collapse -->
+        </div><!-- container -->
+      </nav><!-- navbar -->
+</div>
+    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+    
+<!----------------- Swiper ----------------->
+<div class="swiper-container padding-100">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide row d-flex color4 traffico">
+          <div class="container">
+            <div class="text-center title animated2 animatedFadeInUp fadeInUp">
+              <h1><img class="img-fluid mx-auto" src="https://raw.githubusercontent.com/onewool/traffico/main/image/icon/logo.svg" alt="" id="logoimg"></h1>
+              <h5 class="text-center text-white">
+                Traffico는 공공기관에서 제공하는 교통 오픈데이터를 수집해 쉽고 빠르게 데이터 전처리 과정을 거치고, 데이터 시각화를 통해 사용자들이 보다 편리하게 사고 기록을 볼 수 있게 도와주는 서비스입니다.
+              </h5>
+            </div>
+            <hr class="animated3 animatedFadeInUp fadeInUp">
+            <div id="introduceimg" class="animated4 animatedFadeInUp fadeInUp">
+              <img src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce1.png" alt="introduce" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide row webdata bg-light">
+          <div class="container">
+            <div class="title animated2 animatedFadeInUp fadeInUp">
+              <h1 class="text-center">웹 데이터 수집</h1>
+              <h5 class="text-center">
+                Traffico는 Pandas DataFrame을 통해 공공기관에서 제공하는 교통 오픈데이터를 로드, 가공하고, requests와 BeautifulSoup을 통해 인스타그램 크롤링을 통해 교통에 대한 시민들의 생각을 수집합니다.
+              </h5>
+            </div>
+            <div class="row rowcontents">
+              <iframe class="col-xs-12 col-lg-8 mb-4" src="https://www.youtube.com/embed/XWUwqS4FiAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+              <div class="col-xs-12 col-lg-4">
+                <div class="card">
+                  <div class="card-body mx-auto">
+                    <pre>{
+                      <span class="text-warning">index</span> : "사고 건 수",
+                      <div class="row">
+                        <span class="text-warning">column</span> : [
+                        "생성일"
+                        "사고ID"
+                        "발생 일시"
+                        "종료 일시"
+                        "분류 코드""
+                        "분류 명"
+                        "메시지"
+                        "동경"
+                        "북위"
+                        ],
+                        <span class="text-warning">data</span> :  [
+                        "발생 일시"
+                        "분류명"
+                        "경도"
+                        "위도"
+                      ]</div>}</pre></div><!-- card-body --></div><!-- card --></div><!-- col-xs-12 col-lg-4 mb-4 -->
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide row d-flex pandas">
+                  <div class="container">
+                    <div class="title animated2 animatedFadeInUp fadeInUp">
+                      <h1 class="text-center text-white">Pandas를 통한 변수 관리</h1>
+                      <h5 class="text-center text-white">
+                        Traffico는 Pandas를 통해 공공기관에서 제공하는 교통 오픈데이터 및 openAPI를 정보를 수신하고 데이터를 로드, 인코딩을 지정합니다.
+                      </h5>
+                    </div>
+                    <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+                      <div class="col-xs-12 col-lg-5 mb-4">
+                        <div class="card">
+                          <ul>
+                            <li>소스를 수정하지 않고 모든 태그를 관리</li>
+                            <li>맞춤 함수를 사용 및 체이닝 기법을 통해 목적에 맞는 수집항목 태깅</li>
+                            <li>requests모듈을 통해 raw.github 데이터 불러오기</li>
+                            <li>pivot, transpose와 같은 reshape 기능</li>
+                            <li>groupby, pibot_table등을 통한 데이터 요약과 분석</li>
+                          </ul>
+                        </div><!-- card -->
+                      </div><!-- col-xs-12 col-lg-5 mb-4 -->
+                      <div class="col-xs-12 col-lg-7 mb-4">
+                        <img class="img-fluid" src="https://raw.githubusercontent.com/onewool/traffico/main/image/introduce%20table.jpg" alt="pandas">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide row d-flex numpy bg-light">
+                  <div class="container">
+                    <div class="title animated2 animatedFadeInUp fadeInUp">
+                      <h1 class="text-center">Numpy를 통한 데이터 타입 관리</h1>
+                      <h5 class="text-center">
+                        Traffico는 Numpy를 통해 기본적인 수치계산을 하고, 데이터 형태를 지정 및 변경합니다.
+                      </h5>
+                    </div>
+                    <div class="row rowcontents animated4 animatedFadeInUp fadeInUp bg-light">
+                      <div class="col-xs-12 col-lg-7">
+                        <img class="img-fluid" src="https://raw.githubusercontent.com/onewool/traffico/main/image/numpy.png" alt="numb">
+                      </div>
+                      <div class="col-xs-12 col-lg-5 mb-4">
+                        <div class="card">
+                          <ul>
+                            <li>비교적 빠른 연산을 지원하며 메모리를 효율적으로 사용</li>
+                            <li>astype함수를 통해 데이터 형태 변환</li>
+                            <li>group화를 위해 round함수를 통한 위도 경도 소수 2번째자리까지 반올림</li>
+                            <li>mean, std, var함수를 통해 산술평균, 표준편차, 분산을 계산</li>
+                            <li>where, select함수를 활용한 조건식 작성</li>
+                          </ul>
+                        </div><!-- card -->
+                      </div><!-- col-xs-12 col-lg-5 mb-4 -->
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide row d-flex matplotlib">
+                  <div class="container">
+                    <div class="title animated2 animatedFadeInUp fadeInUp">
+                      <h1 class="text-center text-white">Matplotlib를 통한 데이터 시각화</h1>
+                      <h5 class="text-center text-white">
+                        Traffico는 Matplotlib를 통해 boxplot, scatter, barplot 등 기본적인 시각화 방법을 사용합니다.
+                      </h5>
+                    </div>
+                    <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+                      <div class="col-xs-12 col-lg-6">
+                        <div class="card">
+                          <ul>
+                            <li>boxplot을 통한 이상치 검증</li>
+                            <li>scatter를 통한 시구군별 과거 돌발상황 건수 분포도 확인</li>
+                            <li>barplot을 통한 원인 별 하위 10개 시구군 비교</li>
+                            <li>pieplot을 통한 원인 별 상위 10개 시구군 비교</li>
+                            <li>colormap 기능을 통한 색상을 통한 데이터 강조</li>
+                          </ul>
+                        </div><!-- card -->
+                      </div><!-- col-xs-12 col-lg-5 mb-4 -->
+                      <div class="col-xs-12 col-lg-6 mb-4">
+                        <img class="img-fluid" src="https://raw.githubusercontent.com/onewool/traffico/main/image/matplotlib.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide row folium bg-light">
+                  <div class="container">
+                    <div class="title animated2 animatedFadeInUp fadeInUp">
+                      <h1 class="text-center">Folium을 통한 지도 데이터 활용</h1>
+                      <h5 class="text-center">
+                        Traffico는 Folium의 OpenStreetMap 및 공공 GeoJson 데이터를 통해 지도 데이터를 활용합니다.
+                      </h5>
+                    </div>
+                    <div class="row rowcontents animated4 animatedFadeInUp fadeInUp">
+                      <iframe src="http://3.35.152.231/static/data/Si_Do_map.html" frameborder="0" class="col-xs-12 col-lg-7"></iframe>
+                      <div class="col-xs-12 col-lg-5">
+                        <div class="card">
+                          <ul>
+                            <li>folium모듈을 사용해 공간 시각화 및 지도위에 데이터 시각화</li>
+                            <li>GeoJson으로 대한민국 행정구역 시도, 시군구에 대한 공간 데이터 불러오기</li>
+                            <li>위경도 정보로 marker활용 choropleth 그리기</li>
+                            <li>원으로 범위를 표기해 각 시도별 교통 취약구간 시각화</li>
+                            <li>html 파일로 내보내기 및 iframe으로 웹사이트 연결</li>
+                          </ul>
+                        </div><!-- card -->
+                      </div><!-- col-xs-12 col-lg-4 mb-4 -->
+                    </div>
+                  </div>
+                </div>
+        </div>
+  </div>
+
+    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+</div>
+<!----------------- footer------------------->
+      <footer class="container-fluid bg-secondary text-white">
+        <div class="row">
+          <hr style="width: 95%">
+          <div class="col-md-4 col-xs-12">
+            <button type="button" class="btn btn-secondary btn-lg" onclick="location.href = '/traffico/introduce'">사이트 소개</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="location.href = '/traffico/sitemap/'">사이트 맵</button>
+          </div>
+          <ul class="col-md-4 col-xs-12">
+            <li>· 유한울 : docus17@gmail.com</li>
+            <li>· 한재희 : baskinhee@gmail.com</li>
+            <li>· 허재은 : jyhuh94@hanmail.net</li>
+          </ul>
+          <p class="col-md-4 col-xs-12">Copyright © 2022, Traffico. All rights reserved.</p>
+        </div>
+      </footer>
+  <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="http://3.35.152.231/static/myscript.js"></script>
+    <script src="http://3.35.152.231/static/swiper.js"></script>
+    <script src="https://kit.fontawesome.com/4697f4666c.js" crossorigin="anonymous"></script><style media="all" id="fa-v4-font-face">/*!
+ * Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2022 Fonticons, Inc.
+ */@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-solid-900.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-solid-900.ttf) format("truetype")}@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-brands-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-brands-400.ttf) format("truetype")}@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-regular-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-regular-400.ttf) format("truetype");unicode-range:u+f003,u+f006,u+f014,u+f016-f017,u+f01a-f01b,u+f01d,u+f022,u+f03e,u+f044,u+f046,u+f05c-f05d,u+f06e,u+f070,u+f087-f088,u+f08a,u+f094,u+f096-f097,u+f09d,u+f0a0,u+f0a2,u+f0a4-f0a7,u+f0c5,u+f0c7,u+f0e5-f0e6,u+f0eb,u+f0f6-f0f8,u+f10c,u+f114-f115,u+f118-f11a,u+f11c-f11d,u+f133,u+f147,u+f14e,u+f150-f152,u+f185-f186,u+f18e,u+f190-f192,u+f196,u+f1c1-f1c9,u+f1d9,u+f1db,u+f1e3,u+f1ea,u+f1f7,u+f1f9,u+f20a,u+f247-f248,u+f24a,u+f24d,u+f255-f25b,u+f25d,u+f271-f274,u+f278,u+f27b,u+f28c,u+f28e,u+f29c,u+f2b5,u+f2b7,u+f2ba,u+f2bc,u+f2be,u+f2c0-f2c1,u+f2c3,u+f2d0,u+f2d2,u+f2d4,u+f2dc}@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-v4compatibility.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-v4compatibility.ttf) format("truetype");unicode-range:u+f041,u+f047,u+f065-f066,u+f07d-f07e,u+f080,u+f08b,u+f08e,u+f090,u+f09a,u+f0ac,u+f0ae,u+f0b2,u+f0d0,u+f0d6,u+f0e4,u+f0ec,u+f10a-f10b,u+f123,u+f13e,u+f148-f149,u+f14c,u+f156,u+f15e,u+f160-f161,u+f163,u+f175-f178,u+f195,u+f1f8,u+f219,u+f250,u+f252,u+f27a}</style><style media="all" id="fa-v5-font-face">/*!
+ * Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2022 Fonticons, Inc.
+ */@font-face{font-family:"Font Awesome 5 Brands";font-display:block;font-weight:400;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-brands-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-brands-400.ttf) format("truetype")}@font-face{font-family:"Font Awesome 5 Free";font-display:block;font-weight:900;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-solid-900.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-solid-900.ttf) format("truetype")}@font-face{font-family:"Font Awesome 5 Free";font-display:block;font-weight:400;src:url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-regular-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v6.1.1/webfonts/free-fa-regular-400.ttf) format("truetype")}</style><style media="all" id="fa-v4-shims">/*!
+ 
